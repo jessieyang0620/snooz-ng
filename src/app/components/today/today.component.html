@@ -1,0 +1,13 @@
+<!-- header TODO abstract to component -->
+<div clas='fixed-top' style='background-color: lightgray;'>
+    <span><b>Thursday April 15th</b></span>
+    <nav class="nav d-flex flex-row justify-content-around nav-custom">
+        <a [class]="isTasks()? 'nav-link active' : 'nav-link'" style='width: 50%;' (click)="setCurrentTab(1)"><h2>Tasks</h2></a>
+        <a [class]="isHealth()? 'nav-link active' : 'nav-link'" style='width: 50%' (click)="setCurrentTab(0)"><h2>Health</h2></a>
+    </nav>
+</div>
+<!-- /header -->
+<div class='padding'></div>
+<app-tasks *ngIf="isTasks()"></app-tasks>
+<app-health *ngIf="isHealth()"></app-health>
+<app-navbar [current]="currentNav"></app-navbar>

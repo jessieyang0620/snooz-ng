@@ -1,0 +1,17 @@
+h5, p {
+    margin-bottom: 0px;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+}
+
+.fill {
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+    
+}

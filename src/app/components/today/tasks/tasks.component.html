@@ -1,0 +1,11 @@
+<div class='p-3'>
+    <h4 class='text-secondary'>What are your plans today?</h4>
+    <div *ngFor="let t of tasksList" class='pl-4'>
+        <app-task-entry [task]="t"></app-task-entry>
+    </div>
+    <div class='fixed-bottom d-flex flex-row justify-content-end pb-5 pr-2'>
+        <button type='button' class='btn btn-primary rounded-circle' (click)='openModal()'>+</button>
+    </div>
+        
+</div>
+

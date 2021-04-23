@@ -1,0 +1,11 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: lightgray;
+}
+
+.nav-button {
+    text-align: center;
+    font-size: 20px;
+}

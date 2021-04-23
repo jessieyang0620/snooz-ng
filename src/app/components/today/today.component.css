@@ -1,0 +1,14 @@
+.padding {
+    margin-top: 10vh;
+    background-color: red;
+}
+
+.nav-custom {
+    background-color: #d3d3d3;
+    height: 10vh;
+    width: 100vw;
+}
+
+.active {
+    background-color: white;
+}

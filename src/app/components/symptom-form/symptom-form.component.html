@@ -1,0 +1,40 @@
+<div class="modal-header bg-secondary text-white">
+    <h4 class="modal-title">New Symptom</h4>
+    <button type="button" class="close text-white" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <!-- form starts here -->
+    <form >
+        <div class="form-group">
+            <!-- name -->
+            <label for="name">Symptom</label>
+            <input type="text" class="form-control" id="name" placeholder="Anxious">
+               <!-- missing validation -->
+        </div>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <select class="form-control" id="unit">
+              <option *ngFor="let t of type" [value]="t">{{t}}</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <!-- units -->
+            <label for="unit">Severity <br><small>(1 is lowest, 5 is highest)</small></label>
+            <select class="form-control" id="unit">
+              <option *ngFor="let s of severity" [value]="s">{{s}}</option>
+            </select>
+            <!-- missing validation -->
+          </div>
+        
+          <div class="form-group">
+            <label for="comments">Comments</label>
+            <input type="textArea" class="form-control" id="comments">
+          </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="addSymptom()">Add</button>
+</div>

@@ -1,0 +1,8 @@
+<div [class]="'rounded p-2 ' + colorCode()">
+    <p class='text-white'>{{symptom.name}}</p>
+    <div class='d-flex flex-row'>
+        <div *ngFor="let r of rating">
+            <div [class]="'circle rounded-circle border border-white ' + (r <= symptom.severity ? 'fill' : '')"></div>
+        </div>
+    </div>
+</div>

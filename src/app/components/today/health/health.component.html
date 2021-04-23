@@ -1,0 +1,25 @@
+<div class='p-3'>
+    <div class='pb-4'>
+        <h4 class='text-secondary'>How do you feel today?</h4>
+        <div class='d-flex flex-row flex-wrap'>
+            <div *ngFor="let s of symptomsList" class= 'p-2'>
+                <app-health-entry [symptom]="s"></app-health-entry>
+            </div>
+        </div>
+        <div class='d-flex flex-row justify-content-end pt-3 pr-2'>
+            <button type='button' class='btn btn-primary rounded-circle' (click)='openSymptomModal()'>+</button>
+        </div>
+    </div>
+
+    <div class='pb-4'>
+        <h4 class='text-secondary'>Did you take any medications?</h4>
+        <div class='d-flex flex-row flex-wrap'>
+            <div *ngFor="let m of medicationsList" class= 'p-2'>
+                <app-medications-entry [medication]="m"></app-medications-entry>
+            </div>
+        </div>
+        <div class='d-flex flex-row justify-content-end pt-3 pr-2'>
+            <button type='button' class='btn btn-primary rounded-circle' (click)='openMedicationModal()'>+</button>
+        </div>
+    </div>
+</div>
