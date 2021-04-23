@@ -7,6 +7,7 @@ export enum NOTIFICATION_SETTINGS {
 }
 
 export interface User {
+    id: number,
     firstName: string,
     lastName: string,
     dob: Date,
