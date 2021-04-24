@@ -32,6 +32,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { TodoModuleComponent } from './components/home/today-module/todo-module/todo-module.component';
 import { MedicationsModuleComponent } from './components/home/today-module/medications-module/medications-module.component';
 import { DateTileComponent } from './components/calendar/month-view/date-tile/date-tile.component';
+import { MedicationInfoComponent } from './components/info-popups/medication-info/medication-info.component';
+import { TaskInfoComponent } from './components/info-popups/task-info/task-info.component';
+import { SymptomInfoComponent } from './components/info-popups/symptom-info/symptom-info.component';
 
 
 @NgModule({
@@ -62,7 +65,10 @@ import { DateTileComponent } from './components/calendar/month-view/date-tile/da
     HeaderComponent,
     TodoModuleComponent,
     MedicationsModuleComponent,
-    DateTileComponent
+    DateTileComponent,
+    MedicationInfoComponent,
+    TaskInfoComponent,
+    SymptomInfoComponent
   ],
   imports: [
     BrowserModule,
