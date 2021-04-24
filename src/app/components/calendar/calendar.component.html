@@ -1,2 +1,29 @@
-<p>calendar works!</p>
+<div class='fixed-top'>
+    <div style='background-color: lightgray; padding-bottom: 2px'>
+        <app-header></app-header>
+        <h1>Calendar</h1></div>
+</div>
+<div class='header-offset footer-offset'>
+    <nav class="nav d-flex flex-row justify-content-between pl-3 pr-3">
+        <button class='btn btn-primary'><<</button>
+        <h4>April 2021</h4>
+        <button class='btn btn-primary'>>></button>
+    </nav>
+    <app-month-view></app-month-view>
+    <div class='p-3'>
+        <h5 class='text-secondary'>Key:</h5>
+    <div class='d-flex flex-row justify-content-between flex-wrap'>
+        <div class='d-flex flex-row align-items-baseline'>
+            <div class='circle rounded-circle bg-warning' style='width: 15px; height: 15px'></div>
+            <p class='text-warning'>&nbsp;= mental symptom</p></div>
+        
+        <div class='d-flex flex-row align-items-baseline'>
+            <div class='circle rounded-circle bg-danger' style='width: 15px; height: 15px'></div>
+            <p class='text-danger'>&nbsp;= physical symptom</p></div>
+        <div class='d-flex flex-row align-items-baseline'>
+            <div class='circle rounded-circle bg-dark' style='width: 15px; height: 15px'></div>
+            <p class='text-dark'>&nbsp;= medication</p></div>
+    </div>
+    </div>
+</div>
 <app-navbar [current]="currentNav"></app-navbar>

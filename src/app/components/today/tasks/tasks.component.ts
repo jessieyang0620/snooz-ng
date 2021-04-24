@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Task } from 'src/app/data-structs/Task';
 import { TasksService } from 'src/app/services/tasks.service';
-import { TaskFormComponent } from '../../task-form/task-form.component';
+import { TaskFormComponent } from '../../forms/task-form/task-form.component';
 
 @Component({
   selector: 'app-tasks',
@@ -17,7 +17,6 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.tasksList = this.tasksService.getAllTasks();
-    console.log(this.tasksList.toString());
   }
 
   openModal(): void {

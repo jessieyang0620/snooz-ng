@@ -1,0 +1,18 @@
+<div class='p-3'>
+    <div class='d-flex flex-row justify-content-between text-secondary text-right'>
+        <div *ngFor="let d of daysOfWeek" style='width: 12vw'>
+            <b>{{d}}</b>
+        </div>
+    </div>
+    <div class='d-flex flex-row justify-content-between flex-wrap align-items-center'>
+        <div *ngFor="let b of startsOnBuffer">
+            <div class='tile'></div>
+        </div>
+        <div *ngFor="let d of days" class='tile rounded border border-black pb-2' [class]="d === 25 ? 'bg-secondary' : ''">
+            <app-date-tile [dd]="d" [today]="d === 25" (click)='openModal(d)'></app-date-tile>
+        </div>
+        <div *ngFor="let b of endsOnBuffer">
+            <div class='tile'></div>
+        </div>
+    </div>
+</div>

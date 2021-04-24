@@ -4,9 +4,20 @@
     <div class='task-label'>
       <!-- title -->
       <div *ngIf='task.complete then strikeThrough else normal'></div>
-      <ng-template #strikeThrough><h5><s>{{task.title}}</s></h5></ng-template>
-      <ng-template #normal><h5>{{task.title}}</h5></ng-template>
-      <!-- opt. info -->
+      <ng-template #strikeThrough><b><s>{{task.title}}</s></b>
+        <!-- opt. info -->
+      <div class='pl-3'>
+        <!-- from and to time -->
+      <div class='d-flex flex-row justify-content-start'>
+        <p *ngIf='task.fromTime'><s>{{formatTime(task.fromTime)}}</s></p>
+        <p *ngIf='task.toTime'><s>&nbsp;- {{formatTime(task.toTime)}}</s></p>
+      </div>
+      <!-- due date -->
+      <p *ngIf='task.dueDate'><s><small>Due: {{formatDate(task.dueDate)}}</small></s></p>
+      </div>
+      </ng-template>
+      <ng-template #normal><b>{{task.title}}</b>
+        <!-- opt. info -->
       <div class='pl-3'>
         <!-- from and to time -->
       <div class='d-flex flex-row justify-content-start'>
@@ -16,5 +27,6 @@
       <!-- due date -->
       <p *ngIf='task.dueDate'><small>Due: {{formatDate(task.dueDate)}}</small></p>
       </div>
+      </ng-template>
     </div>
   </div>

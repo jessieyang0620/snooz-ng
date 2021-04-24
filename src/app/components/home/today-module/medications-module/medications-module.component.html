@@ -1,0 +1,11 @@
+<div class='p-3 rounded' style='background-color: lightgray;'>
+        <h5>Medications:</h5>
+        <div class='d-flex flex-row flex-wrap'>
+            <div *ngFor="let m of medicationsList" class='pr-2'>
+                <app-medications-entry [medication]="m"></app-medications-entry>
+            </div>
+        </div>
+        <div class='d-flex flex-row justify-content-end'>
+            <button type='button' class='btn btn-primary rounded' [routerLink]="['/today']">View All</button>
+        </div>
+</div>

@@ -1,0 +1,11 @@
+<div class='rounded border-dark'>
+    <h6 class='text-right'>{{dd}}</h6>
+    <div class='d-flex flex-row size'>
+        <div *ngFor="let s of symptoms">
+            <div [class]="'circle rounded-circle' + (s.type === 0 ? ' bg-warning' : ' bg-danger')"></div>
+        </div>
+        <div *ngFor="let m of medications">
+            <div class='circle rounded-circle bg-dark'></div>
+        </div>
+    </div>
+</div>

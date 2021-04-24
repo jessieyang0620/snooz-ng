@@ -3,8 +3,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Medication } from 'src/app/data-structs/Medication';
 import { Symptom } from 'src/app/data-structs/Symptom';
 import { HealthService } from 'src/app/services/health.service';
-import { MedicationFormComponent } from '../../medication-form/medication-form.component';
-import { SymptomFormComponent } from '../../symptom-form/symptom-form.component';
+import { MedicationFormComponent } from '../../forms/medication-form/medication-form.component';
+import { SymptomFormComponent } from '../../forms/symptom-form/symptom-form.component';
 
 @Component({
   selector: 'app-health',

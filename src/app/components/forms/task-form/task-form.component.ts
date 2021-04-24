@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Task } from 'src/app/data-structs/Task';
 import { TasksService } from 'src/app/services/tasks.service';
-import { Date } from '../../data-structs/Task';
+import { Date } from '../../../data-structs/Task';
 export enum TaskType {
   EDIT, ADD
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NAV_OPTIONS } from '../navbar/navbar.component';
 
 export enum TODAY_OPTIONS {
@@ -11,20 +11,19 @@ export enum TODAY_OPTIONS {
   styleUrls: ['./today.component.css']
 })
 export class TodayComponent implements OnInit {
-  currentNav = NAV_OPTIONS.TODAY;
-  currentTab = TODAY_OPTIONS.TASKS;
+  @Input() startingTab?;
+  currentNav= NAV_OPTIONS.TODAY;
+  currentTab=  TODAY_OPTIONS.TASKS;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.startingTab);
+    this.currentTab = TODAY_OPTIONS.TASKS;
   }
 
   setCurrentTab(tab: TODAY_OPTIONS) {
-    if (tab === TODAY_OPTIONS.TASKS) {
-      this.currentTab = TODAY_OPTIONS.TASKS;
-    } else {
-      this.currentTab = TODAY_OPTIONS.HEALTH;
-    }
+    this.currentTab = tab;
   }
   
   isTasks(): boolean {

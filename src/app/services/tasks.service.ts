@@ -1,6 +1,5 @@
 import { Time } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Task } from '../data-structs/Task';
 import {Date} from '../data-structs/Task';
 @Injectable({
@@ -26,12 +25,7 @@ export class TasksService {
     {title: 'get laundry',
      complete: true}
   ]
-
-  private _task: BehaviorSubject<Task[]>;
-
-  constructor() { 
-    this._task = new BehaviorSubject(this.tasks);
-  }
+  constructor() { }
 
   addTask(title: string, 
     fromTime?: Time, 
@@ -52,10 +46,8 @@ export class TasksService {
         category: category || null,
         complete: false
       })
-  }
-
+    }
   updateTask(): void {}
-
   deleteTask(title: string): void {
     for (let t of this.tasks) {
       
@@ -73,5 +65,5 @@ export class TasksService {
   getAllTasks(): Task[] {
     return this.tasks;
   }
-}
 
+}

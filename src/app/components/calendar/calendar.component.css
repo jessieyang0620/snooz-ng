@@ -1,0 +1,12 @@
+.nav-custom {
+    background-color: #d3d3d3;
+    height: 10vh;
+    width: 100vw;
+}
+
+.header-offset {
+    margin-top: 16vh;
+}
+.footer-offset {
+    padding-bottom: 5vh;
+}

@@ -6,7 +6,6 @@ export interface Date {
     year: number
 }
 export interface Task {
-    id: number,
     title: string,
     fromTime?: Time,
     fromDate?: Date,
