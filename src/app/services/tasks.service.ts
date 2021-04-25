@@ -6,8 +6,10 @@ import {NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
     providedIn: 'root'
 })
 export class TasksService {
+    private static idCounter = 3;
     private tasks: Task[] = [
         {
+            id: 0,
             title: 'HCI final project',
             fromTime: {hour: 7, minute: 30, second: 0},
             fromDate: {month: 4, day: 14, year: 2021},
@@ -19,6 +21,7 @@ export class TasksService {
             complete: false
         },
         {
+            id: 1,
             title: 'HCI presentation',
             fromTime: {hour: 12, minute: 50, second: 0},
             fromDate: {month: 4, day: 15, year: 2021},
@@ -27,6 +30,7 @@ export class TasksService {
             complete: false
         },
         {
+            id: 2,
             title: 'get laundry',
             complete: true
         }
@@ -44,6 +48,7 @@ export class TasksService {
             dueDate?: NgbDateStruct,
             category?: string): void {
         this.tasks.push({
+            id: TasksService.idCounter,
             title,
             fromTime: fromTime || null,
             fromDate: fromDate || null,
@@ -54,20 +59,48 @@ export class TasksService {
             category: category || null,
             complete: false
         });
+        TasksService.idCounter++;
     }
 
-    updateTask(): void {
-    }
-
-    deleteTask(title: string): void {
-        for (let t of this.tasks) {
-
+    updateTask(id: number,
+               title?: string,
+               fromTime?: NgbTimeStruct,
+               fromDate?: NgbDateStruct,
+               toTime?: NgbTimeStruct,
+               toDate?: NgbDateStruct,
+               dueTime?: NgbTimeStruct,
+               dueDate?: NgbDateStruct,
+               category?: string): void {
+        let i = 0;
+        while (i++) {
+            if (this.tasks[i].id === id) {
+                this.tasks[i] = Object.assign({}, this.tasks[i], {
+                    title,
+                    fromTime: fromTime || null,
+                    fromDate: fromDate || null,
+                    toTime: toTime || null,
+                    toDate: toDate || null,
+                    dueTime: dueTime || null,
+                    dueDate: dueDate || null,
+                    category: category || null,
+                    complete: false
+                });
+            }
         }
     }
 
-    getTask(title: string): Task {
-        for (let t of this.tasks) {
-            if (t.title === title) {
+    deleteTask(id: number): void {
+        let i = this.tasks.length;
+        while (i--) {
+            if (this.tasks[i].id === id) {
+                this.tasks.splice(i, 1);
+            }
+        }
+    }
+
+    getTask(id: number): Task {
+        for (const t of this.tasks) {
+            if (t.id === id) {
                 return t;
             }
         }
@@ -76,5 +109,4 @@ export class TasksService {
     getAllTasks(): Task[] {
         return this.tasks;
     }
-
 }
