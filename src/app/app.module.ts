@@ -36,6 +36,7 @@ import { MedicationInfoComponent } from './components/info-popups/medication-inf
 import { TaskInfoComponent } from './components/info-popups/task-info/task-info.component';
 import { SymptomInfoComponent } from './components/info-popups/symptom-info/symptom-info.component';
 import { EditTaskFormComponent } from './components/forms/edit-task-form/edit-task-form.component';
+import { EditSymptomFormComponent } from './components/forms/edit-symptom-form/edit-symptom-form.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { EditTaskFormComponent } from './components/forms/edit-task-form/edit-ta
     MedicationInfoComponent,
     TaskInfoComponent,
     SymptomInfoComponent,
-    EditTaskFormComponent
+    EditTaskFormComponent,
+    EditSymptomFormComponent
   ],
     imports: [
         BrowserModule,
