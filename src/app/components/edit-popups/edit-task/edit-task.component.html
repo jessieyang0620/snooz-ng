@@ -1,1 +1,78 @@
-<p>edit-task works!</p>
+<div class="modal-header bg-secondary text-white">
+    <h4 class="modal-title">Edit Task</h4>
+    <button type="button" class="close text-white" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form (ngSubmit)="updateTask()"></form>
+    <!-- title -->
+    <div class='form-group'>
+        <label for='title'>What do you need to do?</label>
+        <input type="text" class="form-control" id="title"
+               required
+               [(ngModel)]="model.title" name="title"
+               #title="ngModel">
+    </div>
+
+    <label for="when">When?</label>
+    <div class="form-group" id="when">
+        <!-- from -->
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="from">From</label>
+            <div class="input-group col-sm-5">
+                <input class="form-control" placeholder="yyyy-mm-dd" id="from"
+                       [(ngModel)]="model.fromDate" ngbDatepicker #fromDatePicker="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar"
+                            (click)="fromDatePicker.toggle()" type="button"></button>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <ngb-timepicker [(ngModel)]="model.fromTime" [meridian]=true
+                                [spinners]=false></ngb-timepicker>
+            </div>
+        </div>
+        <!-- to -->
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="to">To</label>
+            <div class="input-group col-sm-5">
+                <input class="form-control" placeholder="yyyy-mm-dd" id="to"
+                       [(ngModel)]="model.toDate" ngbDatepicker #toDatePicker="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar"
+                            (click)="toDatePicker.toggle()" type="button"></button>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <ngb-timepicker [(ngModel)]="model.toTime" [meridian]=true
+                                [spinners]=false></ngb-timepicker>
+            </div>
+        </div>
+    </div>
+
+    <label for="dueDate">Due Date</label>
+    <div class="form-group" id="dueDate">
+        <!-- due date -->
+        <div class="row mb-3">
+            <div class="input-group col-sm-5">
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                       [(ngModel)]="model.dueDate" ngbDatepicker #dueDatePicker="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar"
+                            (click)="dueDatePicker.toggle()" type="button"></button>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <ngb-timepicker [(ngModel)]="model.dueTime" [meridian]=true
+                                [spinners]=false></ngb-timepicker>
+            </div>
+        </div>
+    </div>
+
+    <!-- TODO category -->
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="updateTask()">Save</button>
+</div>

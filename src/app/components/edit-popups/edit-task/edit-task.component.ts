@@ -1,24 +1,67 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Day } from 'src/app/data-structs/Day';
-import { Task } from 'src/app/data-structs/Task';
-import { DayService } from 'src/app/services/day.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {NgbActiveModal, NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
+import {TasksService} from 'src/app/services/tasks.service';
+import {Task} from '../../../data-structs/Task';
+
+export enum TaskType {
+    EDIT, ADD
+}
+
+// note to self fix later bc interface
+export class TaskTemp {
+    constructor(
+        public title: string,
+        public complete: boolean,
+        public fromTime?: NgbTimeStruct,
+        public fromDate?: NgbDateStruct,
+        public toTime?: NgbTimeStruct,
+        public toDate?: NgbDateStruct,
+        public dueTime?: NgbTimeStruct,
+        public dueDate?: NgbDateStruct,
+        public category?: string) {
+    }
+}
 
 @Component({
-  selector: 'app-edit-task',
-  templateUrl: './edit-task.component.html',
-  styleUrls: ['./edit-task.component.css']
+    selector: 'app-edit-task',
+    templateUrl: './edit-task.component.html',
+    styleUrls: ['./edit-task.component.css']
 })
 export class EditTaskComponent implements OnInit {
-  @Input() task: Task;
-  @Input() day: Day;
+    submitted = false;
 
-  model: Task;
-  constructor(public activeModal: NgbActiveModal,
-    private dayService: DayService) { }
+    @Input() initTask: Task;
 
-  ngOnInit(): void {
-    
-  }
+    model = new TaskTemp(
+        '',
+        false,
+        {hour: 0, minute: 0, second: 0},
+        {month: 0, day: 0, year: 0},
+        {hour: 0, minute: 0, second: 0},
+        {month: 0, day: 0, year: 0},
+        {hour: 0, minute: 0, second: 0},
+        {month: 0, day: 0, year: 0},
+        '');
 
+    constructor(public activeModal: NgbActiveModal,
+                private tasksService: TasksService) {
+    }
+
+    ngOnInit(): void {
+        this.model.title = this.initTask.title;
+        this.model.complete = this.initTask.complete;
+        this.model.fromTime = this.initTask.fromTime;
+        this.model.fromDate = this.initTask.fromDate;
+        this.model.toTime = this.initTask.toTime;
+        this.model.toDate = this.initTask.toDate;
+        this.model.dueTime = this.initTask.dueTime;
+        this.model.dueDate = this.initTask.dueDate;
+        this.model.category = this.initTask.category;
+    }
+
+    updateTask(): void {
+        this.submitted = true;
+        this.tasksService.updateTask(this.initTask.id, this.model.title, this.model.fromTime, this.model.fromDate, this.model.toTime, this.model.toDate, this.model.dueTime, this.model.dueDate);
+        this.activeModal.close();
+    }
 }

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Task} from 'src/app/data-structs/Task';
 import {NgbDateStruct, NgbModal, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
-import {EditTaskFormComponent} from '../../../forms/edit-task-form/edit-task-form.component';
+import {EditTaskComponent} from '../../../edit-popups/edit-task/edit-task.component';
 
 @Component({
     selector: 'app-task-entry',
@@ -82,7 +82,7 @@ export class TaskEntryComponent implements OnInit {
     }
 
     openModal(): void {
-        const modalRef = this.modalService.open(EditTaskFormComponent);
+        const modalRef = this.modalService.open(EditTaskComponent);
         modalRef.componentInstance.initTask = this.task;
     }
 }
