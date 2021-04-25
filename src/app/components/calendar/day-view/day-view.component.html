@@ -11,11 +11,16 @@
         <div *ngIf='getTasks().length ===0 then noTasks else showTasks'></div>
         <ng-template #noTasks>
             You did not log any tasks on this day.
+            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(2)'>Add Task</button>
         </ng-template>
         <ng-template #showTasks>
             <div *ngFor="let t of getTasks()" class='pl-4'>
-            <app-task-entry [task]="t"></app-task-entry>
+                <div class='d-flex flex-row align-items-center'>
+                    <div class='rounded-circle btn btn-dark' [hidden]="!isEditing" (click)="deleteTask(t)">x</div>
+                    <app-task-entry [task]="t" (click)='openModal(5, t)'></app-task-entry>
+                </div>
             </div>
+            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(2)'>Add Task</button>
         </ng-template>
     </div>
     
@@ -26,13 +31,18 @@
         <div *ngIf='getSymptoms().length === 0 then noSymptoms else showSymptoms'></div>
         <ng-template #noSymptoms>
             You did not log any symptoms on this day.
+            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(0)'>Add Symptom</button>
         </ng-template>
         <ng-template #showSymptoms>
             <div class='d-flex flex-row flex-wrap'>
                 <div *ngFor="let s of getSymptoms()" class= 'p-2'>
-                    <app-health-entry [symptom]="s"></app-health-entry>
+                    <div class='d-flex flex-row align-items-center'>
+                        <div class='rounded-circle btn btn-dark' [hidden]="!isEditing" (click)='deleteSymptoms(s)'>x</div>
+                        <app-health-entry [symptom]="s" (click)='openModal(3,s)'></app-health-entry>
+                    </div>
                 </div>
             </div>
+            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(0)'>Add Symptom</button>
         </ng-template>
          
         <!--Medications  -->
@@ -40,16 +50,21 @@
         <div *ngIf='getMedications().length === 0 then noMeds else showMeds'></div>
         <ng-template #noMeds>
             You did not log any medications on this day.
+            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(1)'>Add Medication</button>
         </ng-template>
         <ng-template #showMeds>
             <div class='d-flex flex-row flex-wrap'>
                 <div *ngFor="let m of getMedications()" class= 'p-2'>
-                    <app-medications-entry [medication]="m"></app-medications-entry>
+                    <div class='d-flex flex-row align-items-center'>
+                        <div class='rounded-circle btn btn-dark' [hidden]="!isEditing" (click)='deleteMedications(m)'>x</div>
+                        <app-medications-entry [medication]="m" (click)='openModal(4, m)'></app-medications-entry>
+                    </div>
                 </div>
             </div>
+            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(1)'>Add Medication</button>
         </ng-template>
     <div class='d-flex flex-row justify-content-end'>
-        <button type='button' class='btn btn-primary rounded' (click)='toggleEdit()'>Edit</button>
+        <button type='button' class='btn btn-primary rounded' (click)='toggleEdit()' [textContent]="isEditing ? 'Done' : 'Edit'"></button>
     </div>
 </div>
 <div class="modal-footer">

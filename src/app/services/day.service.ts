@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { createNoSubstitutionTemplateLiteral } from 'typescript';
 import { Day } from '../data-structs/Day';
 import { DOSAGE_UNIT } from '../data-structs/Medication';
 import { SYMPTOM_TYPE } from '../data-structs/Symptom';
@@ -147,7 +148,7 @@ export class DayService {
                     dosage: 0.5,
                     unit: DOSAGE_UNIT.g}
     ]},
-    {date: {month: 4, day: 23, year: 2021},
+    {date: {month: 4, day: 24, year: 2021},
     tasks: [],
     symptoms: [
               {name: 'headache', 
@@ -187,5 +188,21 @@ export class DayService {
       }
     }
     return this.emptyDay;
+  }
+
+  deleteDay(d: Day): void {
+    this.april.forEach((day,index)=>{
+      if(day==d) {
+        console.log('deleted day');
+        this.april.splice(index,1);
+      }
+    });
+    console.log(JSON.stringify(this.april));
+  }
+
+  addDay(d: Day): void {
+    console.log('added day');
+    this.april.push(d);
+    console.log(JSON.stringify(this.april));
   }
 }

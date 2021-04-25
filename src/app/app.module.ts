@@ -35,6 +35,9 @@ import { DateTileComponent } from './components/calendar/month-view/date-tile/da
 import { MedicationInfoComponent } from './components/info-popups/medication-info/medication-info.component';
 import { TaskInfoComponent } from './components/info-popups/task-info/task-info.component';
 import { SymptomInfoComponent } from './components/info-popups/symptom-info/symptom-info.component';
+import { EditSymptomComponent } from './components/edit-popups/edit-symptom/edit-symptom.component';
+import { EditMedicationComponent } from './components/edit-popups/edit-medication/edit-medication.component';
+import { EditTaskComponent } from './components/edit-popups/edit-task/edit-task.component';
 
 
 @NgModule({
@@ -68,7 +71,10 @@ import { SymptomInfoComponent } from './components/info-popups/symptom-info/symp
     DateTileComponent,
     MedicationInfoComponent,
     TaskInfoComponent,
-    SymptomInfoComponent
+    SymptomInfoComponent,
+    EditSymptomComponent,
+    EditMedicationComponent,
+    EditTaskComponent
   ],
     imports: [
         BrowserModule,
