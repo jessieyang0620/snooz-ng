@@ -16,7 +16,7 @@ import { TasksComponent } from './components/today/tasks/tasks.component';
 import { TaskEntryComponent } from './components/today/tasks/task-entry/task-entry.component';
 import { TaskFormComponent } from './components/forms/task-form/task-form.component';
 import { SymptomFormComponent } from './components/forms/symptom-form/symptom-form.component';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HealthEntryComponent } from './components/today/health/health-entry/health-entry.component';
 import { MedicationsEntryComponent } from './components/today/health/medications-entry/medications-entry.component';
@@ -70,13 +70,14 @@ import { SymptomInfoComponent } from './components/info-popups/symptom-info/symp
     TaskInfoComponent,
     SymptomInfoComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    NgbModalModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule,
+        NgbModalModule,
+        FormsModule,
+        NgbModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
