@@ -1,4 +1,4 @@
-<div [class]="'rounded p-2 ' + colorCode()">
+<div [class]="'rounded p-2 ' + colorCode()" (click)="openModal()">
     <p class='text-white'>{{symptom.name}}</p>
     <div class='d-flex flex-row'>
         <div *ngFor="let r of rating">
