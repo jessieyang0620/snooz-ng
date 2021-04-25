@@ -1,7 +1,7 @@
 <div class="modal-header bg-secondary text-white">
     <h4 class="modal-title">{{getMonth()}}&nbsp;{{dd}},&nbsp;{{yyyy}}</h4>
-    <button type="button" class="close text-white" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
+    <button (click)="activeModal.dismiss('Cross click')" aria-label="Close" class="close text-white" type="button">
+        <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
@@ -11,19 +11,23 @@
         <div *ngIf='getTasks().length ===0 then noTasks else showTasks'></div>
         <ng-template #noTasks>
             You did not log any tasks on this day.
-            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(2)'>Add Task</button>
+            <button (click)='openModal(2)' [hidden]="!isEditing" class='btn btn-primary rounded' type='button'>Add
+                Task
+            </button>
         </ng-template>
         <ng-template #showTasks>
             <div *ngFor="let t of getTasks()" class='pl-4'>
                 <div class='d-flex flex-row align-items-center'>
-                    <div class='rounded-circle btn btn-dark' [hidden]="!isEditing" (click)="deleteTask(t)">x</div>
-                    <app-task-entry [task]="t" (click)='openModal(5, t)'></app-task-entry>
+                    <div (click)="deleteTask(t)" [hidden]="!isEditing" class='rounded-circle btn btn-dark'>x</div>
+                    <app-task-entry (click)='openModal(5, t)' [task]="t"></app-task-entry>
                 </div>
             </div>
-            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(2)'>Add Task</button>
+            <button (click)='openModal(2)' [hidden]="!isEditing" class='btn btn-primary rounded' type='button'>Add
+                Task
+            </button>
         </ng-template>
     </div>
-    
+
     <!-- health -->
     <div class='p-3'>
         <!-- Symptoms -->
@@ -31,42 +35,54 @@
         <div *ngIf='getSymptoms().length === 0 then noSymptoms else showSymptoms'></div>
         <ng-template #noSymptoms>
             You did not log any symptoms on this day.
-            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(0)'>Add Symptom</button>
+            <button (click)='openModal(0)' [hidden]="!isEditing" class='btn btn-primary rounded' type='button'>Add
+                Symptom
+            </button>
         </ng-template>
         <ng-template #showSymptoms>
             <div class='d-flex flex-row flex-wrap'>
-                <div *ngFor="let s of getSymptoms()" class= 'p-2'>
+                <div *ngFor="let s of getSymptoms()" class='p-2'>
                     <div class='d-flex flex-row align-items-center'>
-                        <div class='rounded-circle btn btn-dark' [hidden]="!isEditing" (click)='deleteSymptoms(s)'>x</div>
-                        <app-health-entry [symptom]="s" (click)='openModal(3,s)'></app-health-entry>
+                        <div (click)='deleteSymptoms(s)' [hidden]="!isEditing" class='rounded-circle btn btn-dark'>x
+                        </div>
+                        <app-health-entry (click)='openModal(3,s)' [symptom]="s"></app-health-entry>
                     </div>
                 </div>
             </div>
-            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(0)'>Add Symptom</button>
+            <button (click)='openModal(0)' [hidden]="!isEditing" class='btn btn-primary rounded' type='button'>Add
+                Symptom
+            </button>
         </ng-template>
-         
+
         <!--Medications  -->
         <h4 class='text-secondary'>Medications:</h4>
         <div *ngIf='getMedications().length === 0 then noMeds else showMeds'></div>
         <ng-template #noMeds>
             You did not log any medications on this day.
-            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(1)'>Add Medication</button>
+            <button (click)='openModal(1)' [hidden]="!isEditing" class='btn btn-primary rounded' type='button'>Add
+                Medication
+            </button>
         </ng-template>
         <ng-template #showMeds>
             <div class='d-flex flex-row flex-wrap'>
-                <div *ngFor="let m of getMedications()" class= 'p-2'>
+                <div *ngFor="let m of getMedications()" class='p-2'>
                     <div class='d-flex flex-row align-items-center'>
-                        <div class='rounded-circle btn btn-dark' [hidden]="!isEditing" (click)='deleteMedications(m)'>x</div>
-                        <app-medications-entry [medication]="m" (click)='openModal(4, m)'></app-medications-entry>
+                        <div (click)='deleteMedications(m)' [hidden]="!isEditing" class='rounded-circle btn btn-dark'>
+                            x
+                        </div>
+                        <app-medications-entry (click)='openModal(4, m)' [medication]="m"></app-medications-entry>
                     </div>
                 </div>
             </div>
-            <button type='button' class='btn btn-primary rounded' [hidden]="!isEditing" (click)='openModal(1)'>Add Medication</button>
+            <button (click)='openModal(1)' [hidden]="!isEditing" class='btn btn-primary rounded' type='button'>Add
+                Medication
+            </button>
         </ng-template>
-    <div class='d-flex flex-row justify-content-end'>
-        <button type='button' class='btn btn-primary rounded' (click)='toggleEdit()' [textContent]="isEditing ? 'Done' : 'Edit'"></button>
+        <div class='d-flex flex-row justify-content-end'>
+            <button (click)='toggleEdit()' [textContent]="isEditing ? 'Done' : 'Edit'" class='btn btn-primary rounded'
+                    type='button'></button>
+        </div>
     </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Close</button>
-</div>
+    <div class="modal-footer">
+        <button (click)="activeModal.close()" class="btn btn-secondary" type="button">Close</button>
+    </div>

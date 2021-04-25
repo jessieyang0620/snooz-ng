@@ -1,47 +1,48 @@
 <div class="modal-header bg-secondary text-white">
     <h4 class="modal-title">New Symptom</h4>
-    <button type="button" class="close text-white" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
+    <button (click)="activeModal.dismiss('Cross click')" aria-label="Close" class="close text-white" type="button">
+        <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
     <!-- form starts here -->
-    <form (ngSubmit)="editSymptom()" #symptomForm="ngForm">
+    <form #symptomForm="ngForm" (ngSubmit)="editSymptom()">
         <div class="form-group">
             <!-- name -->
             <label for="name">Symptom</label>
-            <input type="text" class="form-control" id="name" 
-            placeholder="e.g.: Anxious" required 
-            [(ngModel)]="model.name" name="name"
-               #name="ngModel">
-               <!-- missing validation -->
+            <input #name="ngModel" [(ngModel)]="model.name" class="form-control"
+                   id="name" name="name"
+                   placeholder="e.g.: Anxious" required
+                   type="text">
+            <!-- missing validation -->
         </div>
         <div class="form-group">
             <label for="type">Type</label>
-            <select class="form-control" id="type" required
-            [(ngModel)]="model.type" name="type"
-            #type="ngModel">
-              <option *ngFor="let t of symptomType" [value]="t">{{t}}</option>
+            <select #type="ngModel" [(ngModel)]="model.type" class="form-control"
+                    id="type" name="type"
+                    required>
+                <option *ngFor="let t of symptomType" [value]="t">{{t}}</option>
             </select>
         </div>
-        
+
         <div class="form-group">
             <!-- units -->
             <label for="severity">Severity <br><small>(1 is lowest, 5 is highest)</small></label>
-            <select class="form-control" id="severity" required 
-            [(ngModel)]="model.severity" name="severity"
-                    #severity="ngModel">
-              <option *ngFor="let s of severityLevels" [value]="s">{{s}}</option>
+            <select #severity="ngModel" [(ngModel)]="model.severity" class="form-control"
+                    id="severity" name="severity"
+                    required>
+                <option *ngFor="let s of severityLevels" [value]="s">{{s}}</option>
             </select>
             <!-- missing validation -->
-          </div>
-        
-          <div class="form-group">
+        </div>
+
+        <div class="form-group">
             <label for="comments">Comments</label>
-            <input type="textArea" class="form-control" id="comments" [(ngModel)]="model.comments" name="comments" placeholder="e.g.: Why are you feeling this way?">
-          </div>
+            <input [(ngModel)]="model.comments" class="form-control" id="comments" name="comments" placeholder="e.g.: Why are you feeling this way?"
+                   type="textArea">
+        </div>
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="editSymptom()">Add</button>
+    <button (click)="editSymptom()" class="btn btn-primary" type="button">Add</button>
 </div>

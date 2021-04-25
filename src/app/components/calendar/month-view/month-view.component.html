@@ -8,8 +8,9 @@
         <div *ngFor="let b of startsOnBuffer">
             <div class='tile'></div>
         </div>
-        <div *ngFor="let d of days" class='tile rounded border border-black pb-2' [class]="d === 25 ? 'bg-secondary' : ''">
-            <app-date-tile [dd]="d" [today]="d === 25" (click)='openModal(d)'></app-date-tile>
+        <div *ngFor="let d of days" [class]="d === 25 ? 'bg-secondary' : ''"
+             class='tile rounded border border-black pb-2'>
+            <app-date-tile (click)='openModal(d)' [dd]="d" [today]="d === 25"></app-date-tile>
         </div>
         <div *ngFor="let b of endsOnBuffer">
             <div class='tile'></div>

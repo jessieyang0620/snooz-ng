@@ -1,39 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { NAV_OPTIONS } from '../navbar/navbar.component';
+import {Component, OnInit} from '@angular/core';
+import {NAV_OPTIONS} from '../navbar/navbar.component';
 
 export enum CALENDAR_OPTIONS {
-  DAY, WEEK, MONTH
+    DAY, WEEK, MONTH
 }
 
 @Component({
-  selector: 'app-calendar',
-  templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+    selector: 'app-calendar',
+    templateUrl: './calendar.component.html',
+    styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  currentNav = NAV_OPTIONS.CALENDAR;
-  currentView = CALENDAR_OPTIONS.MONTH;
-  
-  
-  constructor() { }
+    currentNav = NAV_OPTIONS.CALENDAR;
+    currentView = CALENDAR_OPTIONS.MONTH;
 
-  ngOnInit(): void {
-  }
 
-  setCurrentView(view: CALENDAR_OPTIONS): void {
+    constructor() {
+    }
 
-    this.currentView = view;
-  }
+    ngOnInit(): void {
+    }
 
-  isDay(): boolean {
-    return this.currentView === CALENDAR_OPTIONS.DAY;
-  }
+    setCurrentView(view: CALENDAR_OPTIONS): void {
 
-  isWeek(): boolean {
-    return this.currentView === CALENDAR_OPTIONS.WEEK;
-  }
+        this.currentView = view;
+    }
 
-  isMonth(): boolean {
-    return this.currentView === CALENDAR_OPTIONS.MONTH;
-  }
+    isDay(): boolean {
+        return this.currentView === CALENDAR_OPTIONS.DAY;
+    }
+
+    isWeek(): boolean {
+        return this.currentView === CALENDAR_OPTIONS.WEEK;
+    }
+
+    isMonth(): boolean {
+        return this.currentView === CALENDAR_OPTIONS.MONTH;
+    }
 }

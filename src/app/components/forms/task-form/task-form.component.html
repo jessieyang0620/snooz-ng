@@ -1,7 +1,7 @@
 <div class="modal-header bg-secondary text-white">
     <h4 class="modal-title">New Task</h4>
-    <button type="button" class="close text-white" aria-label="Close"
-            (click)="activeModal.dismiss('Cross click')">
+    <button (click)="activeModal.dismiss('Cross click')" aria-label="Close" class="close text-white"
+            type="button">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
@@ -10,10 +10,10 @@
     <!-- title -->
     <div class='form-group'>
         <label for='title'>What do you need to do?</label>
-        <input type="text" class="form-control" id="title"
-               required
-               [(ngModel)]="model.title" name="title"
-               #title="ngModel">
+        <input #title="ngModel" [(ngModel)]="model.title" class="form-control"
+               id="title"
+               name="title" required
+               type="text">
     </div>
 
     <label for="when">When?</label>
@@ -22,11 +22,11 @@
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="from">From</label>
             <div class="input-group col-sm-5">
-                <input class="form-control" placeholder="yyyy-mm-dd" id="from"
-                       [(ngModel)]="model.fromDate" ngbDatepicker #fromDatePicker="ngbDatepicker">
+                <input #fromDatePicker="ngbDatepicker" [(ngModel)]="model.fromDate" class="form-control"
+                       id="from" ngbDatepicker placeholder="yyyy-mm-dd">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar"
-                            (click)="fromDatePicker.toggle()" type="button"></button>
+                    <button (click)="fromDatePicker.toggle()"
+                            class="btn btn-outline-secondary calendar" type="button"></button>
                 </div>
             </div>
             <div class="col-sm-5">
@@ -38,11 +38,11 @@
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="to">To</label>
             <div class="input-group col-sm-5">
-                <input class="form-control" placeholder="yyyy-mm-dd" id="to"
-                       [(ngModel)]="model.toDate" ngbDatepicker #toDatePicker="ngbDatepicker">
+                <input #toDatePicker="ngbDatepicker" [(ngModel)]="model.toDate" class="form-control"
+                       id="to" ngbDatepicker placeholder="yyyy-mm-dd">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar"
-                            (click)="toDatePicker.toggle()" type="button"></button>
+                    <button (click)="toDatePicker.toggle()"
+                            class="btn btn-outline-secondary calendar" type="button"></button>
                 </div>
             </div>
             <div class="col-sm-5">
@@ -57,11 +57,11 @@
         <!-- due date -->
         <div class="row mb-3">
             <div class="input-group col-sm-5">
-                <input class="form-control" placeholder="yyyy-mm-dd"
-                       [(ngModel)]="model.dueDate" ngbDatepicker #dueDatePicker="ngbDatepicker">
+                <input #dueDatePicker="ngbDatepicker" [(ngModel)]="model.dueDate"
+                       class="form-control" ngbDatepicker placeholder="yyyy-mm-dd">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar"
-                            (click)="dueDatePicker.toggle()" type="button"></button>
+                    <button (click)="dueDatePicker.toggle()"
+                            class="btn btn-outline-secondary calendar" type="button"></button>
                 </div>
             </div>
             <div class="col-sm-5">
@@ -84,5 +84,5 @@
     <!-- TODO category -->
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="addTask()">Add</button>
+    <button (click)="addTask()" class="btn btn-primary" type="button">Add</button>
 </div>

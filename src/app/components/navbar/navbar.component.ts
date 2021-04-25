@@ -1,29 +1,32 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 export enum NAV_OPTIONS {
-  TODAY, HOME, CALENDAR
+    TODAY, HOME, CALENDAR
 }
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() current: NAV_OPTIONS;
+    @Input() current: NAV_OPTIONS;
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  isToday(): boolean {
-    return this.current === NAV_OPTIONS.TODAY;
-  }
-  isHome(): boolean {
-    return this.current === NAV_OPTIONS.HOME;
-  }
-  isCalendar(): boolean {
-    return this.current === NAV_OPTIONS.CALENDAR;
-  }
+    isToday(): boolean {
+        return this.current === NAV_OPTIONS.TODAY;
+    }
+
+    isHome(): boolean {
+        return this.current === NAV_OPTIONS.HOME;
+    }
+
+    isCalendar(): boolean {
+        return this.current === NAV_OPTIONS.CALENDAR;
+    }
 }

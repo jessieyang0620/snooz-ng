@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-today-module',
-  templateUrl: './today-module.component.html',
-  styleUrls: ['./today-module.component.css']
+    selector: 'app-today-module',
+    templateUrl: './today-module.component.html',
+    styleUrls: ['./today-module.component.css']
 })
 export class TodayModuleComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }

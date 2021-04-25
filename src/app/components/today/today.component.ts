@@ -1,36 +1,37 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NAV_OPTIONS } from '../navbar/navbar.component';
+import {Component, Input, OnInit} from '@angular/core';
+import {NAV_OPTIONS} from '../navbar/navbar.component';
 
 export enum TODAY_OPTIONS {
-  HEALTH, TASKS
+    HEALTH, TASKS
 }
 
 @Component({
-  selector: 'app-today',
-  templateUrl: './today.component.html',
-  styleUrls: ['./today.component.css']
+    selector: 'app-today',
+    templateUrl: './today.component.html',
+    styleUrls: ['./today.component.css']
 })
 export class TodayComponent implements OnInit {
-  @Input() startingTab?;
-  currentNav= NAV_OPTIONS.TODAY;
-  currentTab=  TODAY_OPTIONS.TASKS;
+    @Input() startingTab?;
+    currentNav = NAV_OPTIONS.TODAY;
+    currentTab = TODAY_OPTIONS.TASKS;
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-    console.log(this.startingTab);
-    this.currentTab = TODAY_OPTIONS.TASKS;
-  }
+    ngOnInit(): void {
+        console.log(this.startingTab);
+        this.currentTab = TODAY_OPTIONS.TASKS;
+    }
 
-  setCurrentTab(tab: TODAY_OPTIONS) {
-    this.currentTab = tab;
-  }
-  
-  isTasks(): boolean {
-    return this.currentTab === TODAY_OPTIONS.TASKS;
-  }
+    setCurrentTab(tab: TODAY_OPTIONS): void {
+        this.currentTab = tab;
+    }
 
-  isHealth(): boolean {
-    return this.currentTab === TODAY_OPTIONS.HEALTH;
-  }
+    isTasks(): boolean {
+        return this.currentTab === TODAY_OPTIONS.TASKS;
+    }
+
+    isHealth(): boolean {
+        return this.currentTab === TODAY_OPTIONS.HEALTH;
+    }
 }

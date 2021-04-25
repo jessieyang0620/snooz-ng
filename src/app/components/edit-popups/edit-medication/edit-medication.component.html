@@ -1,50 +1,50 @@
 <div class="modal-header bg-secondary text-white">
     <h4 class="modal-title">Edit Medication</h4>
-    <button type="button" class="close text-white" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
+    <button (click)="activeModal.dismiss('Cross click')" aria-label="Close" class="close text-white" type="button">
+        <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
     <!-- form starts here -->
-    <form (ngSubmit)="editMedication()" #medicationForm="ngForm">
+    <form #medicationForm="ngForm" (ngSubmit)="editMedication()">
         <div class="form-group">
             <!-- name -->
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name"
-               required
-               [(ngModel)]="model.name" name="name"
-               #name="ngModel"
-               placeholder="e.g.: Tylenol">
-               <!-- missing validation -->
+            <input #name="ngModel" [(ngModel)]="model.name" class="form-control"
+                   id="name"
+                   name="name" placeholder="e.g.: Tylenol"
+                   required
+                   type="text">
+            <!-- missing validation -->
         </div>
         <div class="form-group">
             <!-- dosage -->
             <label for="dosage">Dosage</label>
-            <input type="number" class="form-control" id="dosage"
-               required
-               [(ngModel)]="model.dosage" name="dosage"
-               #name="ngModel">
-               <!-- missing validation -->
+            <input #name="ngModel" [(ngModel)]="model.dosage" class="form-control"
+                   id="dosage"
+                   name="dosage" required
+                   type="number">
+            <!-- missing validation -->
         </div>
         <div class="form-group">
             <!-- units -->
             <label for="unit">Unit</label>
-            <select class="form-control" id="unit"
-                    required
-                    [(ngModel)]="model.unit" name="unit"
-                    #unit="ngModel">
-              <option *ngFor="let u of units" [value]="u">{{u}}</option>
+            <select #unit="ngModel" [(ngModel)]="model.unit"
+                    class="form-control"
+                    id="unit" name="unit"
+                    required>
+                <option *ngFor="let u of units" [value]="u">{{u}}</option>
             </select>
             <!-- missing validation -->
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label for="comments">Comments</label>
-            <input type="textArea" class="form-control" id="comments"
-                   [(ngModel)]="model.comment" name="comments" placeholder="e.g.: What is the medication for?">
-          </div>
+            <input [(ngModel)]="model.comment" class="form-control" id="comments"
+                   name="comments" placeholder="e.g.: What is the medication for?" type="textArea">
+        </div>
     </form>
 
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="editMedication()">Done</button>
+    <button (click)="editMedication()" class="btn btn-primary" type="button">Done</button>
 </div>
