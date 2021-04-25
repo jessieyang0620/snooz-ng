@@ -51,8 +51,8 @@ export class TaskFormComponent implements OnInit {
     }
 
     addTask(): void {
-        this.submitted = true;
-        console.log(JSON.stringify(this.model));
+        this.submitted = true; 
+        this.tasksService.addTask(this.model.title, this.model.fromTime, this.model.fromDate, this.model.toTime, this.model.toDate, this.model.dueTime, this.model.dueDate);
         this.activeModal.close();
     }
 }

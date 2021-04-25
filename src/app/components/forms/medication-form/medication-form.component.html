@@ -31,7 +31,7 @@
             <select class="form-control" id="unit"
                     required
                     [(ngModel)]="model.unit" name="unit"
-                    #power="ngModel">
+                    #unit="ngModel">
               <option *ngFor="let u of units" [value]="u">{{u}}</option>
             </select>
             <!-- missing validation -->
@@ -39,7 +39,7 @@
           <div class="form-group">
             <label for="comments">Comments</label>
             <input type="textArea" class="form-control" id="comments"
-                   [(ngModel)]="model.comment" name="comments">
+                   [(ngModel)]="model.comment" name="comments" placeholder="e.g.: What is the medication for?">
           </div>
     </form>
 
