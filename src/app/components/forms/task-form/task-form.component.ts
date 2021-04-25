@@ -27,9 +27,6 @@ export class TaskTemp {
     styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-    hours: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    minutes: number[] = [0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
-
     submitted = false;
 
     model = new TaskTemp(
@@ -51,7 +48,7 @@ export class TaskFormComponent implements OnInit {
     }
 
     addTask(): void {
-        this.submitted = true; 
+        this.submitted = true;
         this.tasksService.addTask(this.model.title, this.model.fromTime, this.model.fromDate, this.model.toTime, this.model.toDate, this.model.dueTime, this.model.dueDate);
         this.activeModal.close();
     }
