@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Task} from 'src/app/data-structs/Task';
-import {NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateStruct, NgbModal, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
+import {EditTaskFormComponent} from '../../../forms/edit-task-form/edit-task-form.component';
 
 @Component({
     selector: 'app-task-entry',
@@ -10,7 +11,7 @@ import {NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 export class TaskEntryComponent implements OnInit {
     @Input() task: Task;
 
-    constructor() {
+    constructor(private modalService: NgbModal) {
     }
 
     ngOnInit(): void {
@@ -78,5 +79,10 @@ export class TaskEntryComponent implements OnInit {
 
     toggleComplete(): void {
         this.task.complete = !this.task.complete;
+    }
+
+    openModal(): void {
+        const modalRef = this.modalService.open(EditTaskFormComponent);
+        modalRef.componentInstance.initTask = this.task;
     }
 }

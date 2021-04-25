@@ -1,32 +1,34 @@
 <div class="form-check pb-2">
-    <input *ngIf='!task.complete' class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="toggleComplete()">
-    <input *ngIf='task.complete' class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked (click)="toggleComplete()">
-    <div class='task-label'>
-      <!-- title -->
-      <div *ngIf='task.complete then strikeThrough else normal'></div>
-      <ng-template #strikeThrough><b><s>{{task.title}}</s></b>
-        <!-- opt. info -->
-      <div class='pl-3'>
-        <!-- from and to time -->
-      <div class='d-flex flex-row justify-content-start'>
-        <p *ngIf='task.fromTime'><s>{{formatTime(task.fromTime)}}</s></p>
-        <p *ngIf='task.toTime'><s>&nbsp;- {{formatTime(task.toTime)}}</s></p>
-      </div>
-      <!-- due date -->
-      <p *ngIf='task.dueDate'><s><small>Due: {{formatDate(task.dueDate)}}</small></s></p>
-      </div>
-      </ng-template>
-      <ng-template #normal><b>{{task.title}}</b>
-        <!-- opt. info -->
-      <div class='pl-3'>
-        <!-- from and to time -->
-      <div class='d-flex flex-row justify-content-start'>
-        <p *ngIf='task.fromTime'>{{formatTime(task.fromTime)}}</p>
-        <p *ngIf='task.toTime'>&nbsp;- {{formatTime(task.toTime)}}</p>
-      </div>
-      <!-- due date -->
-      <p *ngIf='task.dueDate'><small>Due: {{formatDate(task.dueDate)}}</small></p>
-      </div>
-      </ng-template>
+    <input *ngIf='!task.complete' class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+           (click)="toggleComplete()">
+    <input *ngIf='task.complete' class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked
+           (click)="toggleComplete()">
+    <div class='task-label' (click)='openModal()'>
+        <!-- title -->
+        <div *ngIf='task.complete then strikeThrough else normal'></div>
+        <ng-template #strikeThrough><b><s>{{task.title}}</s></b>
+            <!-- opt. info -->
+            <div class='pl-3'>
+                <!-- from and to time -->
+                <div class='d-flex flex-row justify-content-start'>
+                    <p *ngIf='task.fromTime'><s>{{formatTime(task.fromTime)}}</s></p>
+                    <p *ngIf='task.toTime'><s>&nbsp;- {{formatTime(task.toTime)}}</s></p>
+                </div>
+                <!-- due date -->
+                <p *ngIf='task.dueDate'><s><small>Due: {{formatDate(task.dueDate)}}</small></s></p>
+            </div>
+        </ng-template>
+        <ng-template #normal><b>{{task.title}}</b>
+            <!-- opt. info -->
+            <div class='pl-3'>
+                <!-- from and to time -->
+                <div class='d-flex flex-row justify-content-start'>
+                    <p *ngIf='task.fromTime'>{{formatTime(task.fromTime)}}</p>
+                    <p *ngIf='task.toTime'>&nbsp;- {{formatTime(task.toTime)}}</p>
+                </div>
+                <!-- due date -->
+                <p *ngIf='task.dueDate'><small>Due: {{formatDate(task.dueDate)}}</small></p>
+            </div>
+        </ng-template>
     </div>
-  </div>
+</div>
