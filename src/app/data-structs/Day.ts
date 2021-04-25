@@ -1,9 +1,11 @@
-import { Medication } from "./Medication";
-import { Symptom } from "./Symptom";
-import { Task, Date } from "./Task";
+import {Medication} from './Medication';
+import {Symptom} from './Symptom';
+import {Task} from './Task';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+
 export interface Day {
-    date: Date,
-    tasks: Task[]
-    symptoms: Symptom[],
-    medications: Medication[]
+    date: NgbDateStruct;
+    tasks: Task[];
+    symptoms: Symptom[];
+    medications: Medication[];
 }
