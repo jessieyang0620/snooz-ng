@@ -26,7 +26,7 @@ export class MedicationFormComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal,
     private healthService: HealthService) {
-    this.model = new MedicationForm('name', 0, 'g', '');
+    this.model = new MedicationForm('', 0, 'g', '');
   }
 
   ngOnInit(): void {

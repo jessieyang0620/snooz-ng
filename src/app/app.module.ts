@@ -16,7 +16,7 @@ import { TasksComponent } from './components/today/tasks/tasks.component';
 import { TaskEntryComponent } from './components/today/tasks/task-entry/task-entry.component';
 import { TaskFormComponent } from './components/forms/task-form/task-form.component';
 import { SymptomFormComponent } from './components/forms/symptom-form/symptom-form.component';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HealthEntryComponent } from './components/today/health/health-entry/health-entry.component';
 import { MedicationsEntryComponent } from './components/today/health/medications-entry/medications-entry.component';
@@ -32,6 +32,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { TodoModuleComponent } from './components/home/today-module/todo-module/todo-module.component';
 import { MedicationsModuleComponent } from './components/home/today-module/medications-module/medications-module.component';
 import { DateTileComponent } from './components/calendar/month-view/date-tile/date-tile.component';
+import { MedicationInfoComponent } from './components/info-popups/medication-info/medication-info.component';
+import { TaskInfoComponent } from './components/info-popups/task-info/task-info.component';
+import { SymptomInfoComponent } from './components/info-popups/symptom-info/symptom-info.component';
 
 
 @NgModule({
@@ -62,15 +65,19 @@ import { DateTileComponent } from './components/calendar/month-view/date-tile/da
     HeaderComponent,
     TodoModuleComponent,
     MedicationsModuleComponent,
-    DateTileComponent
+    DateTileComponent,
+    MedicationInfoComponent,
+    TaskInfoComponent,
+    SymptomInfoComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    NgbModalModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule,
+        NgbModalModule,
+        FormsModule,
+        NgbModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

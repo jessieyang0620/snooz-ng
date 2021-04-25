@@ -1,18 +1,13 @@
-import { Time } from "@angular/common";
+import {NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 
-export interface Date {
-    month: number,
-    day: number,
-    year: number
-}
 export interface Task {
-    title: string,
-    fromTime?: Time,
-    fromDate?: Date,
-    toTime?: Time,
-    toDate?: Date,
-    dueTime?: Time,
-    dueDate?: Date,
-    category?: string,
-    complete: boolean
+    title: string;
+    fromTime?: NgbTimeStruct;
+    fromDate?: NgbDateStruct;
+    toTime?: NgbTimeStruct;
+    toDate?: NgbDateStruct;
+    dueTime?: NgbTimeStruct;
+    dueDate?: NgbDateStruct;
+    category?: string;
+    complete: boolean;
 }
