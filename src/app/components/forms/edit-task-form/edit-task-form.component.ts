@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import {TasksService} from 'src/app/services/tasks.service';
+import {Task} from '../../../data-structs/Task';
 
 export enum TaskType {
     EDIT, ADD
@@ -22,12 +23,14 @@ export class TaskTemp {
 }
 
 @Component({
-    selector: 'app-task-form',
-    templateUrl: './task-form.component.html',
-    styleUrls: ['./task-form.component.css']
+    selector: 'app-edit-task-form',
+    templateUrl: './edit-task-form.component.html',
+    styleUrls: ['./edit-task-form.component.css']
 })
-export class TaskFormComponent implements OnInit {
+export class EditTaskFormComponent implements OnInit {
     submitted = false;
+
+    @Input() initTask: Task;
 
     model = new TaskTemp(
         '',
@@ -45,11 +48,20 @@ export class TaskFormComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.model.title = this.initTask.title;
+        this.model.complete = this.initTask.complete;
+        this.model.fromTime = this.initTask.fromTime;
+        this.model.fromDate = this.initTask.fromDate;
+        this.model.toTime = this.initTask.toTime;
+        this.model.toDate = this.initTask.toDate;
+        this.model.dueTime = this.initTask.dueTime;
+        this.model.dueDate = this.initTask.dueDate;
+        this.model.category = this.initTask.category;
     }
 
-    addTask(): void {
+    updateTask(): void {
         this.submitted = true;
-        this.tasksService.addTask(this.model.title, this.model.fromTime, this.model.fromDate, this.model.toTime, this.model.toDate, this.model.dueTime, this.model.dueDate);
+        this.tasksService.updateTask(this.initTask.id, this.model.title, this.model.fromTime, this.model.fromDate, this.model.toTime, this.model.toDate, this.model.dueTime, this.model.dueDate);
         this.activeModal.close();
     }
 }
